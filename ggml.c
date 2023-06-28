@@ -12755,6 +12755,7 @@ static void ggml_compute_forward_rope_f32(
 
                 float theta = (float)p;
 
+                theta = theta * 0.25f;
                 if (!is_neox) {
                     for (int64_t i0 = 0; i0 < ne0; i0 += 2) {
                         const float cos_theta = cosf(theta);
@@ -12868,6 +12869,7 @@ static void ggml_compute_forward_rope_f16(
 
                 float theta = (float)p;
 
+                theta = theta * 0.25f;
                 if (!is_neox) {
                     for (int64_t i0 = 0; i0 < ne0; i0 += 2) {
                         const float cos_theta = cosf(theta);
@@ -13005,7 +13007,8 @@ static void ggml_compute_forward_rope_back_f32(
                 if (ir   > ir1) break;
 
                 float theta = (float)p;
-
+                   
+                theta = theta * 0.25f;
                 if (!is_neox) {
                     for (int64_t i0 = 0; i0 < ne0; i0 += 2) {
                         const float cos_theta = cosf(theta);
@@ -13119,6 +13122,7 @@ static void ggml_compute_forward_rope_back_f16(
 
                 float theta = (float)p;
 
+                theta = theta * 0.25f;
                 if (!is_neox) {
                     for (int64_t i0 = 0; i0 < ne0; i0 += 2) {
                         const float cos_theta = cosf(theta);
